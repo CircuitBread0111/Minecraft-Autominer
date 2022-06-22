@@ -1,61 +1,30 @@
 //--------------------------------------------------
 //                   Pickaxe.Java
 //
-// 	    Author: Jerrin C. Redmon
+// 	    Authors: Jerrin C. Redmon, Will Brown
 //
 // 	     Date: February 2, 2022
-// 	          Version 1.0
+// 	          Version 2.0
 //--------------------------------------------------
 
 public class Pickaxe {//Determines the amount of time allotted to the miner based on pickaxe type
 	private final double MARGIN_OF_ERROR = 0.63;
 	private double pickSpeed;
-	private double durability;
+	private int durability;
+
+	public static final Pickaxe WOOD = new Pickaxe(1.50, 59);
+	public static final Pickaxe STONE = new Pickaxe(0.75, 131);
+	public static final Pickaxe IRON = new Pickaxe(0.05, 150);
+	public static final Pickaxe GOLD = new Pickaxe(0.25, 32);
+	public static final Pickaxe DIAMOND = new Pickaxe(0.40, 1561);
+	public static final Pickaxe NETHERITE = new Pickaxe(0.35, 2031);
 	
-	public Pickaxe() {//Constructor
-		pickSpeed = 0;
-		durability = 0;
+	public Pickaxe(double pickSpeed, int durability) {//Constructor
+		this.pickSpeed = pickSpeed;
+		this.durability = durability;
 	}
-	
-	public double woodPick() {//Calculation for the time to mine with a wooden pickaxe
-		pickSpeed = 1.50;
-		durability = 59;
-		double wood = (pickSpeed+MARGIN_OF_ERROR) * durability;
-		return wood;
-	}
-	
-	public double stonePick() {//Calculation for the time to mine with a stone pickaxe
-		pickSpeed = 0.75;
-		durability = 131;
-		double stone = (pickSpeed+MARGIN_OF_ERROR) * durability;
-		return stone;
-	}
-	
-	public double ironPick() {//Calculation for the time to mine with a iron pickaxe
-		pickSpeed = 0.50;
-		durability = 150;
-		double iron = (pickSpeed+MARGIN_OF_ERROR) * durability;
-		return iron;
-	}
-	
-	public double goldPick() {//Calculation for the time to mine with a gold pickaxe
-		pickSpeed = 0.25;
-		durability = 32;
-		double gold = (pickSpeed+MARGIN_OF_ERROR) * durability;
-		return gold;
-	}
-	
-	public double diamondPick() {//Calculation for the time to mine with a diamond pickaxe
-		pickSpeed = 0.40;
-		durability = 1561;
-		double diamond = (pickSpeed+MARGIN_OF_ERROR) * durability;
-		return diamond;
-	}
-	
-	public double netheritePick() {//Calculation for the time to mine with a netherite pickaxe
-		pickSpeed = 0.35;
-		durability = 2031;
-		double netherite = (pickSpeed+MARGIN_OF_ERROR) * durability;
-		return netherite;
+
+	public double time() {
+		return (pickSpeed + MARGIN_OF_ERROR) * durability;
 	}
 }
