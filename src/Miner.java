@@ -27,7 +27,7 @@ public class Miner extends Thread {
 	Robot miner = null;
 	private double time = 0;
 	
-	/**
+    /**
      * Constructor
      * Initializes miner
      */
